@@ -6,8 +6,12 @@ spring:
     username: sa
     password:
     initialize: false
+    initialization-mode: always
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-  h2.console.enabled: true
+  h2:
+    console:
+      enabled: true
+      path: /console
 hibernate.ddl-auto: update
 #http://localhost:8080/h2-console

@@ -13,6 +13,7 @@ public class Product {
     String description;
     float price;
     String pictureUrl;
+    @Enumerated(EnumType.STRING)
     ProductCategory productCategory;
 
     public Product() {

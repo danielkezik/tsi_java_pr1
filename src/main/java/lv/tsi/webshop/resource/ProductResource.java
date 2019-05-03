@@ -17,9 +17,11 @@ public class ProductResource {
     @Autowired
     ProductRepository productRepository;
 
-    @RequestMapping("/all")
-    public @ResponseBody
-    List<Product> getAllProducts() {
+    @RequestMapping(value = {"/all", "/all/{productCategory}"})
+    public @ResponseBody List<Product> getAllProducts(@PathVariable Optional<ProductCategory> productCategory) {
+        if(productCategory.isPresent()) {
+            return productRepository.findByProductCategory(productCategory.get());
+        }
         return productRepository.findAll();
     }
     @RequestMapping("/{id}")
